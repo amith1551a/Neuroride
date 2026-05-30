@@ -1,0 +1,31 @@
+name: neuroride_app
+description: EEG-based rider drowsiness detection for two-wheeler safety
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_bluetooth_serial: ^0.4.0
+  tflite_flutter: ^0.10.4
+  audioplayers: ^6.0.0
+  vibration: ^2.0.0
+  provider: ^6.1.2
+  fl_chart: ^0.68.0
+  permission_handler: ^11.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/neuroride_model.tflite
+    - assets/scaler_params.json
+    - assets/alert_sound.mp3

@@ -8,6 +8,7 @@ class TfliteService {
   bool get isLoaded => _loaded;
 
   Future<List<double>> predict(List<double> input) async {
+    // Web/PWA fallback: mock inference until TensorFlow.js or backend API is added.
     if (!_loaded) {
       await loadModel();
     }

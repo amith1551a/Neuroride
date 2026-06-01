@@ -1,0 +1,18 @@
+# Claude Code local settings
+.claude/
+
+# Large document/reference files
+"Neuroride documents.zip"
+Neuroride documents/
+Neuroride documents.zip
+
+# Temp audio at root
+alert.mp3.mpeg
+
+# Android build artifacts (covered by neuroride_app/.gitignore too)
+neuroride_app/android/build/
+
+# Python ML generated/binary files
+data/*.pkl
+data/*.pdf
+data/merged_output.csv

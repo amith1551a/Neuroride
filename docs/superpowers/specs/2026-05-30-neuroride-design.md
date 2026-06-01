@@ -62,6 +62,7 @@ Neuroride/
 **Output:** `ml/neuroride_clean.csv`
 
 Operations:
+
 - Remove rows where `Signal Strength > 0` (bad contact)
 - Remove rows where `Date Time` contains "Average %" (summary rows embedded by the FT&S software)
 - Remove rows where all wave values are 0 (initialization rows)
@@ -79,6 +80,7 @@ Expected output: ~7,173 clean rows.
 **Output:** `ml/neuroride_labeled.csv`
 
 Rule-based multi-score labeling. Each row scores points for drowsiness indicators:
+
 - Theta > 4 → +1
 - Delta > 5 → +1
 - Attention < 40 → +1
@@ -109,10 +111,12 @@ Expected: ~99% accuracy, ~0.998 ROC-AUC.
 **Input:** `ml/neuroride_model.pkl`, `ml/neuroride_scaler.pkl`
 
 Two modes:
+
 - **Mode 1 — Stream simulation:** replay `neuroride_labeled.csv` row by row, raise alarm after 3 consecutive drowsy readings
 - **Mode 2 — Single reading:** manual EEG value input → instant prediction
 
 Alert thresholds:
+
 - ✅ SAFE: drowsy probability < 35%
 - ⚠️ WARNING: 35–50%
 - 🚨 DANGER: > 50%
@@ -141,16 +145,16 @@ Conversion path: sklearn RandomForest → ONNX (via `sklearn-onnx`) → TFLite (
 
 ### Flutter Package Selection
 
-| Package | Version | Purpose |
-|---|---|---|
-| `flutter_bluetooth_serial` | ^0.4.0 | Bluetooth Classic SPP (required for TGAM1) |
-| `tflite_flutter` | ^0.10.4 | On-device TFLite inference |
-| `audioplayers` | ^5.2.1 | Alert sound playback |
-| `vibration` | ^1.8.4 | Haptic alert |
-| `provider` | ^6.1.2 | State management |
-| `fl_chart` | ^0.66.2 | Live EEG waveform chart |
-| `permission_handler` | ^11.3.1 | Bluetooth + location permissions |
-| `hive_flutter` | ^1.1.0 | Local session history storage |
+| Package                    | Version | Purpose                                    |
+| -------------------------- | ------- | ------------------------------------------ |
+| `flutter_bluetooth_serial` | ^0.4.0  | Bluetooth Classic SPP (required for TGAM1) |
+| `tflite_flutter`           | ^0.10.4 | On-device TFLite inference                 |
+| `audioplayers`             | ^5.2.1  | Alert sound playback                       |
+| `vibration`                | ^1.8.4  | Haptic alert                               |
+| `provider`                 | ^6.1.2  | State management                           |
+| `fl_chart`                 | ^0.66.2 | Live EEG waveform chart                    |
+| `permission_handler`       | ^11.3.1 | Bluetooth + location permissions           |
+| `hive_flutter`             | ^1.1.0  | Local session history storage              |
 
 ### App Architecture
 

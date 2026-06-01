@@ -1,0 +1,47 @@
+
+NeuroRide – Model Evaluation Report
+=====================================
+Dataset      : 7,173 rows  |  Alert: 5,546  |  Drowsy: 1,627
+Model        : Random Forest (200 trees)
+Test size    : 20%  (1,435 rows)
+
+Results
+-------
+Accuracy     : 98.95%
+ROC-AUC      : 0.9995
+
+Confusion Matrix:
+             Predicted Alert   Predicted Drowsy
+Actual Alert        1098                 12
+Actual Drowsy          3                322
+
+Classification Report:
+              precision    recall  f1-score   support
+
+       Alert       1.00      0.99      0.99      1110
+      Drowsy       0.96      0.99      0.98       325
+
+    accuracy                           0.99      1435
+   macro avg       0.98      0.99      0.99      1435
+weighted avg       0.99      0.99      0.99      1435
+
+
+Cross-Validation (5-fold F1):
+[0.96656535 0.96159754 0.95692308 0.97865854 0.9675425 ]
+Mean: 0.966 ± 0.007
+
+Feature Importances (ranked):
+Theta_Beta_Ratio    0.204220
+Attention           0.184345
+Delta Waves         0.127734
+Theta Waves         0.109065
+Meditation          0.085310
+Delta_AB_Ratio      0.075903
+Alpha_Beta_Ratio    0.062977
+High Beta Waves     0.045949
+Total_Power         0.035956
+Low Beta Waves      0.028637
+High Alpha Waves    0.012214
+Low Alpha Waves     0.011558
+Low Gamma Waves     0.008931
+High Gamma Waves    0.007202
